@@ -1,0 +1,13 @@
+{
+  "name": "MMM-Yahrzeit",
+  "version": "1.0.0",
+  "description": "MagicMirror module to display upcoming Yahrzeits",
+  "main": "MMM-Yahrzeit.js",
+  "dependencies": {
+    "@hebcal/hdate": "^0.11.5",
+    "moment-timezone": "^0.5.34"
+  },
+  "engines": {
+    "node": ">=7.5.2"
+  }
+}

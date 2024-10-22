@@ -35,8 +35,13 @@ module.exports = NodeHelper.create({
             const hebrewDate = new HDate(day, hebrewMonth, isNextYear ? nextHebrewYear : currentHebrewYear);
             const englishDate = hebrewDate.greg();
 
+            let displayName = y.name;
+            if (config.useEllipsis && displayName.length > config.maxCharactersInNameBeforeEllipsis) {
+                displayName = displayName.substring(0, config.maxCharactersInNameBeforeEllipsis) + '...';
+            }
+
             return {
-                name: `${y.name} (${day} ${rawHebrewMonth})`,
+                name: config.showHebrewDate ? `${displayName} (${day} ${rawHebrewMonth})` : displayName,
                 date: moment(englishDate).tz(config.timezone).format('MMMM Do YYYY'),
             };
         }).filter(y => y !== null);

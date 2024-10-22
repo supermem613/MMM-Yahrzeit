@@ -1,9 +1,13 @@
 Module.register("MMM-Yahrzeit", {
     defaults: {
         yahrzeits: [],
+        title: "Upcoming Yahrzeits", // Title to show in the module header
         timezone: "America/New_York", // Specify the timezone
         showCount: 5, // Number of upcoming Yahrzeits to show
-        daysAhead: 365 // Number of days in the future to consider
+        daysAhead: 30, // Number of days in the future to consider
+        useEllipsis: true, // Whether to use ellipsis for names that are too long
+        maxCharactersInNameBeforeEllipsis: 15, // Maximum number of characters in the name before ellipsis is used
+        showHebrewDate: false, // Whether to show Hebrew date in addition to English date
     },
 
     start: function() {

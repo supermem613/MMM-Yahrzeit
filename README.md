@@ -54,13 +54,16 @@ modules: [
 
 ## Configuration Options
 
-| Option      | Description                                                                 | Default |
-|-------------|-----------------------------------------------------------------------------|---------|
-| `yahrzeits` | An array of objects containing `name` and `date` of the Yahrzeit to display | `[]`    |
-| `timezone`  | The timezone for date calculations                                          | `America/New_York`   |
-| `showCount` | The number of Yahrzeits to display                                          | `10`    |
-| `daysAhead` | The number of days ahead to check for upcoming Yahrzeits                    | `60`    |
-| `title`     | The title to display above the list of Yahrzeits                            | `""`    |
+| Option                      | Description                                                                 | Default                |
+|-----------------------------|-----------------------------------------------------------------------------|------------------------|
+| `yahrzeits`                 | An array of objects containing `name` and `date` of the Yahrzeit to display | `[]`                   |
+| `timezone`                  | The timezone for date calculations                                          | `America/New_York`     |
+| `showCount`                 | The number of Yahrzeits to display                                          | `5`                    |
+| `daysAhead`                 | The number of days ahead to check for upcoming Yahrzeits                    | `30`                   |
+| `title`                     | The title to display above the list of Yahrzeits                            | `"Upcoming Yahrzeits"` |
+| `useEllipsis`               | Whether to use ellipsis for long names                                      | `true`                 |
+| `maxCharactersBeforeEllipsis` | The maximum number of characters before adding ellipsis                    | `15`                   |
+| `showHebrewDate`            | Whether to display the Hebrew date alongside the Gregorian date             | `false`                |
 
 ### Yahrzeit Object
 

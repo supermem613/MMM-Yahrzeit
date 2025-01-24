@@ -11,6 +11,8 @@ module.exports = NodeHelper.create({
         if (notification === "GET_YAHRZEITS") {
             this.getYahrzeits(payload);
         }
+
+        console.log(this.name + " received a socket notification: " + notification + " - Payload: " + payload);
     },
 
     getYahrzeits: function(config) {
@@ -52,6 +54,8 @@ module.exports = NodeHelper.create({
         const filteredYahrzeits = yahrzeits.filter(y => {
             const yahrzeitDate = moment(y.date, 'MMMM Do YYYY').tz(config.timezone);
             const diffDays = yahrzeitDate.diff(today, 'days');
+
+            //console.log("Checking Yahrzeit: %s, Date: %s, Diff Days: %d", y.name, yahrzeitDate.format('MMMM Do YYYY'), diffDays);
             return diffDays >= 0 && diffDays <= daysAhead;
         });
 
@@ -70,12 +74,14 @@ module.exports = NodeHelper.create({
             const startingDate = yahrzeitDate.clone().subtract(1, 'days');
 
             let formattedDate;
-            const todayDate = today.date();
+            const todayMonth = today.month();
+            const yahrzeitMonth = yahrzeitDate.month();
+            const todayDay = today.date();
             const yahrzeitDay = yahrzeitDate.date();
 
-            if (yahrzeitDay === todayDate) {
+            if ((yahrzeitDay === todayDay) && (yahrzeitMonth === todayMonth)) {
                 formattedDate = "Today";
-            } else if (yahrzeitDay === todayDate + 1) {
+            } else if ((yahrzeitDay === todayDay + 1) && (yahrzeitMonth === todayMonth)) {
                 formattedDate = "Tonight / Tomorrow";
             } else if (diffDays > 1 && diffDays <= 7) {
                 formattedDate =  startingDate.format('dddd') + " / " + yahrzeitDate.format('dddd');

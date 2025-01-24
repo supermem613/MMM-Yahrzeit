@@ -11,8 +11,17 @@ Module.register("MMM-Yahrzeit", {
     },
 
     start: function() {
+        var self = this
         this.yahrzeitData = [];
         this.getData();
+
+        // update tasks every 600s
+        var refreshFunction = function () {
+            self.config['id'] = self.identifier;
+            self.sendSocketNotification('GET_YAHRZEITS', self.config)
+        }
+        refreshFunction()
+        setInterval(refreshFunction, 600000)
     },
 
     getData: function() {

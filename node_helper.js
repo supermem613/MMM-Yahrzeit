@@ -83,6 +83,8 @@ module.exports = NodeHelper.create({
                 formattedDate = "Today";
             } else if ((yahrzeitDay === todayDay + 1) && (yahrzeitMonth === todayMonth)) {
                 formattedDate = "Tonight / Tomorrow";
+            } else if (diffDays == 1) {
+                formattedDate = "Tomorrow / Next Day";
             } else if (diffDays > 1 && diffDays <= 5) {
                 formattedDate =  startingDate.format('dddd') + " / " + yahrzeitDate.format('dddd');
             } else {

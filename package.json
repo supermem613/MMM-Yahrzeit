@@ -4,7 +4,7 @@
   "description": "MagicMirror module to display upcoming Yahrzeits",
   "main": "MMM-Yahrzeit.js",
   "dependencies": {
-    "@hebcal/hdate": "^0.11.5",
+    "@hebcal/hdate": "^0.14.4",
     "moment-timezone": "^0.5.34"
   },
   "engines": {
